@@ -44,7 +44,7 @@ namespace DalamudJSLib
             _engine.SetValue("callFunction", new Action<object>(CallFunction));
             _engine.SetValue("dalamud_1", new DalamudJSInterface
             {
-                dalamud = new DalamudFunctions
+                Dalamud = new DalamudFunctions
                 {
                     CallFunction = CallFunction
                 }

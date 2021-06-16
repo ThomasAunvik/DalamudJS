@@ -10,6 +10,6 @@ namespace DalamudJSLib
     }
     public class DalamudJSInterface
     {
-        public DalamudFunctions dalamud { get; set; }
+        public DalamudFunctions Dalamud { get; set; }
     }
 }

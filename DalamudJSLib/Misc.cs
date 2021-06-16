@@ -15,7 +15,7 @@ namespace DalamudJSLib
                 code = File.ReadAllText(path);
                 return true;
             }
-            catch (Exception) { Console.WriteLine("Failed to load file: " + path); }
+            catch (Exception) { }
 
             code = "";
             return false;

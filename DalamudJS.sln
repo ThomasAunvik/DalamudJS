@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalamudJSConsole", "DalamudJSConsole\DalamudJSConsole.csproj", "{220BD77E-DD02-435F-961A-49747A36FD4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalamudJSLib", "DalamudJSLib\DalamudJSLib.csproj", "{90D0FCB5-994E-4E7D-9CCC-54A321894F17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{220BD77E-DD02-435F-961A-49747A36FD4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220BD77E-DD02-435F-961A-49747A36FD4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220BD77E-DD02-435F-961A-49747A36FD4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220BD77E-DD02-435F-961A-49747A36FD4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90D0FCB5-994E-4E7D-9CCC-54A321894F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90D0FCB5-994E-4E7D-9CCC-54A321894F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90D0FCB5-994E-4E7D-9CCC-54A321894F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90D0FCB5-994E-4E7D-9CCC-54A321894F17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C04046EB-13A9-473C-969F-1534EB975782}
+	EndGlobalSection
+EndGlobal

@@ -8,7 +8,7 @@ namespace DalamudJSConsole
     {
         static async Task Main(string[] args)
         {
-            DalamudJSEngine engine = new DalamudJSEngine("./build/index.js");
+            DalamudJSEngine engine = new DalamudJSEngine("./PluginScript/build/index.js");
             await engine.Load();
 
             engine.ExecuteCode();

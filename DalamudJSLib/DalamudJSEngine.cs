@@ -38,17 +38,19 @@ namespace DalamudJSLib
 
         public void ExecuteCode()
         {
-            _engine.Execute("var exports = {};", EsprimaOptions);
-            _engine.Execute(jsCode);
-
-            _engine.SetValue("callFunction", new Action<object>(CallFunction));
-            _engine.SetValue("dalamud_1", new DalamudJSInterface
+            var dalamudInterface = new DalamudJSInterface()
             {
                 Dalamud = new DalamudFunctions
                 {
                     CallFunction = CallFunction
                 }
-            });
+            };
+
+            _engine.Execute("var exports = {};", EsprimaOptions);
+            _engine.Execute(jsCode);
+
+            _engine.SetValue("dalamud_1", dalamudInterface);
+            _engine.SetValue("dalamud", dalamudInterface.Dalamud);
 
             _engine.Invoke("intializeDalamud");
         }
@@ -85,6 +87,7 @@ namespace DalamudJSLib
                     return JsValue.FromObject(_engine, obj);
                 }
             }
+
             var indexFileName = $"{filename}/index.ts";
             if (Misc.TryGetFile(indexFileName, out var indexCode))
             {
@@ -100,6 +103,46 @@ namespace DalamudJSLib
                     var obj = new Dictionary<string, object>
                     {
                         ["default"] = indexCode
+                    };
+                    return JsValue.FromObject(_engine, obj);
+                }
+            }
+
+            var jsTopFileName = $"{filename}.js";
+            if (Misc.TryGetFile(jsTopFileName, out var jsTopIndexCode))
+            {
+                if (tsfilename.EndsWith(".js") && !asText)
+                {
+                    _engine.Execute("var exports = {};", EsprimaOptions);
+                    _engine.Execute(jsTopIndexCode, EsprimaOptions);
+                    var result = _engine.GetValue("exports");
+                    return result;
+                }
+                else
+                {
+                    var obj = new Dictionary<string, object>
+                    {
+                        ["default"] = jsTopIndexCode
+                    };
+                    return JsValue.FromObject(_engine, obj);
+                }
+            }
+
+            var tsTopFileName = $"{filename}.ts";
+            if (Misc.TryGetFile(tsTopFileName, out var tsTopIndexCode))
+            {
+                if (tsfilename.EndsWith(".ts") && !asText)
+                {
+                    _engine.Execute("var exports = {};", EsprimaOptions);
+                    _engine.Execute(tsTopIndexCode, EsprimaOptions);
+                    var result = _engine.GetValue("exports");
+                    return result;
+                }
+                else
+                {
+                    var obj = new Dictionary<string, object>
+                    {
+                        ["default"] = tsTopIndexCode
                     };
                     return JsValue.FromObject(_engine, obj);
                 }
